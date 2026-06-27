@@ -11,9 +11,20 @@ jobs:
   lifecycle-gates:
     runs-on: ubuntu-latest
 
+    env:
+      NEBULA_PRODUCT_ROOT: ${{ github.workspace }}/apartment-management
+
     steps:
-      - name: Checkout repository
+      - name: Checkout product repository
         uses: actions/checkout@v4
+        with:
+          path: apartment-management
+
+      - name: Checkout framework repository
+        uses: actions/checkout@v4
+        with:
+          repository: gajakannan/nebula-agents
+          path: nebula-agents
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -23,9 +34,10 @@ jobs:
       - name: Install gate runner dependencies
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install -r agents/scripts/requirements.txt
+          python3 -m pip install -r nebula-agents/agents/scripts/requirements.txt
 
       - name: Show configured lifecycle stages
+        working-directory: nebula-agents
         run: python3 agents/scripts/run-lifecycle-gates.py --list
 
       - name: Explain CI gate scope
@@ -34,4 +46,5 @@ jobs:
           echo "A green result here is not equivalent to implementation/release-readiness gate completion."
 
       - name: Run required gates for current lifecycle stage (stage-scoped)
+        working-directory: nebula-agents
         run: python3 agents/scripts/run-lifecycle-gates.py
