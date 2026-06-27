@@ -1,0 +1,5 @@
+# Solution Ontology
+# Describes the system vocabulary and entity properties.
+ontology:
+  classes: {}
+  properties: {}

@@ -1,0 +1,11 @@
+# Code Index
+# Binds source directory globs to their canonical semantic nodes.
+bindings:
+  - node_id: capability:keycloak-sso-auth
+    paths:
+      - docker-compose.yml
+      - engine/src/ApartmentManagement.Api/Program.cs
+      - engine/src/ApartmentManagement.Application/Options/KeycloakOptions.cs
+      - experience/src/context/AuthContext.tsx
+      - experience/src/pages/login.tsx
+      - experience/src/pages/auth/callback.tsx

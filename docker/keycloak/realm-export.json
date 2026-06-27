@@ -1,0 +1,53 @@
+{
+  "id": "apartment-management",
+  "realm": "apartment-management",
+  "enabled": true,
+  "roles": {
+    "realm": [
+      {
+        "name": "tenant",
+        "description": "Tenant resident role"
+      },
+      {
+        "name": "property-manager",
+        "description": "Property Manager staff role"
+      },
+      {
+        "name": "maintenance-staff",
+        "description": "Maintenance technician role"
+      },
+      {
+        "name": "administrator",
+        "description": "System Administrator role"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "web-client",
+      "enabled": true,
+      "publicClient": true,
+      "protocol": "openid-connect",
+      "redirectUris": [
+        "http://localhost:3000/auth/callback",
+        "http://localhost:3000/*"
+      ],
+      "webOrigins": [
+        "http://localhost:3000",
+        "*"
+      ],
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "fullScopeAllowed": true
+    },
+    {
+      "clientId": "backend-api",
+      "enabled": true,
+      "publicClient": false,
+      "bearerOnly": true,
+      "protocol": "openid-connect",
+      "fullScopeAllowed": true
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# Canonical Nodes
+# System entities and shared semantics mapped to unique IDs.
+nodes:
+  - id: capability:keycloak-sso-auth
+    kind: capability
+    name: Keycloak SSO Authentication
+    summary: Centralized SSO authentication using Keycloak container with OIDC PKCE flow.
+    rationale:
+      - adr: ADR-0001
+        section: Decision
+        summary: Use Keycloak as the Identity and Access Management provider.
+    notes:
+      - Keycloak handles tenant and property manager authentication.
+
+  - id: role:tenant
+    kind: role
+    name: Tenant
+    summary: Residents leasing apartments.
+
+  - id: role:property-manager
+    kind: role
+    name: Property Manager
+    summary: Staff overseeing apartment operations and billing.

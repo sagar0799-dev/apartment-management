@@ -1,0 +1,19 @@
+# Feature Mappings
+# Maps feature/story IDs to their active/archive paths and canonical nodes.
+feature_mappings:
+  - id: F0001
+    name: Keycloak SSO Integration
+    path: features/F0001-keycloak-sso
+    status: in-progress
+    affects:
+      - capability:keycloak-sso-auth
+    stories:
+      - id: F0001-S0001
+        title: Setup Keycloak Identity Provider Service
+        status: not-started
+      - id: F0001-S0002
+        title: Backend OIDC and JWT Integration
+        status: not-started
+      - id: F0001-S0003
+        title: Frontend SSO Sign-In Integration
+        status: not-started
