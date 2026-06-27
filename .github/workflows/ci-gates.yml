@@ -38,7 +38,7 @@ jobs:
 
       - name: Show configured lifecycle stages
         working-directory: nebula-agents
-        run: python3 agents/scripts/run-lifecycle-gates.py --list
+        run: python3 agents/scripts/run-lifecycle-gates.py --config ../apartment-management/lifecycle-stage.yaml --list
 
       - name: Explain CI gate scope
         run: |
@@ -47,4 +47,4 @@ jobs:
 
       - name: Run required gates for current lifecycle stage (stage-scoped)
         working-directory: nebula-agents
-        run: python3 agents/scripts/run-lifecycle-gates.py
+        run: python3 agents/scripts/run-lifecycle-gates.py --config ../apartment-management/lifecycle-stage.yaml
